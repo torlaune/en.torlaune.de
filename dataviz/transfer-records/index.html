@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="World Cup 2014 Migrated Players">
+    <meta name="author" content="Ramiro Gómez">
+
+    <title>Most Expensive Football Transfers: How the Money Flows</title>
+
+    
+
+    <link rel="shortcut icon" href="/img/torlaune-logo.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS feed" href="/rss.xml">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/darkly/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css#v=1">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+<link href="/css/sankey.css" rel="stylesheet">
+
+        
+    
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a id="site-name" class="navbar-brand" href="http://www.torlaune.de/">Torlaune.de</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Visualizations <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        
+                            <li><a href="/dataviz/ronaldo-income/">How Much Cristiano Ronaldo Earns Viewed from 2 Angles</a></li>
+                        
+                            <li><a href="/dataviz/wc2014-player-migrations/">World Cup 2014 Player Migrations</a></li>
+                        
+                            <li><a href="/dataviz/transfer-records/">Most Expensive Football Transfers: How the Money Flows</a></li>
+                        
+                    </ul>
+                </li>
+              <li><a href="/about/">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+<li id="sharemenu" class="dropdown">
+  <button type="button" class="dropdown-toggle btn btn-success navbar-btn" data-toggle="dropdown"><i class="fa fa-share"></i></button>
+  <ul class="share dropdown-menu pull-right">
+    <li><a href="/rss.xml" class="btn btn-info"><i class="fa fa-rss"></i> RSS Feed</a></li>
+    <li><a rel="nofollow" href="https://twitter.com/share?url=http%3A//en.torlaune.de/dataviz/transfer-records/&text=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-twitter"></i> Twitter</a></li>
+    <li><a rel="nofollow" href="http://www.facebook.com/sharer.php?u=http%3A//en.torlaune.de/dataviz/transfer-records/&t=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-facebook"></i> Facebook</a></li>
+    <li><a rel="nofollow" href="https://plus.google.com/share?url=http%3A//en.torlaune.de/dataviz/transfer-records/" class="btn btn-info"><i class="fa fa-google-plus"></i> Google+</a></li>
+    <li><a rel="nofollow" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+    <li><a rel="nofollow" href="http://reddit.com/submit?url=http%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-share"></i> Reddit</a></li>
+    <li><a rel="nofollow" href="http://www.stumbleupon.com/submit?url=http%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-share"></i> Stumble</a></li>
+  </ul>
+</li>
+</ul>
+        </div>
+      </div>
+  </nav>
+
+    
+<div class="container">
+    <div class="row">
+    <div class="col-md-12"><h1>Most Expensive Football Transfers: How the Money Flows</h1></div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="sankey-legend">
+            <h5 class="left">From team</h5>
+            <h5 class="right">To team</h5>
+        </div>
+        <div id="vis"></div>
+        <p>This Sankey diagram was created by <a href="http://ramiro.org/" target="_top">Ramiro Gómez</a> (<a href="https://twitter.com/yaph" target="_top">@yaph</a>) with data obtained from <a href="http://www.transfermarkt.de/en/statistiken/transferrekorde/transfers.html" target="_top">Transfermarkt</a> on December 1, 2013.</p>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-1">
+                <button type="button" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-info-sign"></i></button>
+            </div>
+            <div class="col-md-11">
+                <p>This visualization shows the money flow between teams for the 50 most expensive transfers in football history.</p>
+                <p>The size of the team rectangles corresponds to the total amount of money for transfers from (left) or to the team (right) and the thickness of the lines between teams to the sum of transfers from one team to the other.</p>
+                <p>Click on a rectangle or line to see a breakdown of the corresponding transfers.</p>
+                <h3>Key Figures</h3>
+                <div>
+                    <p>Total amount of money spent in all transfers:<br>
+                    <button id="summary-total" type="button" class="btn btn-default disabled"></button>
+                    </p>
+                    <p>Team that spent the most money: <span class="text-success" id="summary-team-spent"></span><br>
+                    <button id="summary-team-spent-total" type="button" class="btn btn-default disabled"></button>
+                    </p>
+                    <p>Team that earned the most money: <span class="text-success" id="summary-team-earned"></span><br>
+                    <button id="summary-team-earned-total" type="button" class="btn btn-default disabled"></button>
+                    </p>
+                    <p>Highest valued player across all transfers: <span class="text-success" id="summary-player"></span><br>
+                    <button id="summary-player-total" type="button" class="btn btn-default disabled"></button>
+                    </p>
+                </div>
+                <h3>Money Flow between Teams</h3>
+                <table class="table table-striped small" id="team-money-flow">
+                    <thead>
+                        <tr><th>Seller</th><th>Buyer</th><th>Sum</th></tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="transfer-modal">
+    <div id="row"><div id="col-md-12"><div class="well">
+        <button type="button" class="close">&times;</button>
+        <h3>Transfer Breakdown: <span id="transfer-table-suffix"></span></h3>
+        <table id="transfer-table" class="table table-striped">
+            <thead>
+                <tr><th>#</th><th>Player</th><th>From team</th><th>To team</th><th>Season</th><th>Transfer fee</th></tr>
+            <thead>
+            <tbody></tbody>
+        </table>
+    </div></div></div>
+</div>
+</div>
+
+
+    <div class="container">
+      <hr>
+      <footer>
+        <p>© <script>document.write(new Date().getFullYear())</script> <a href="http://www.torlaune.de/">Torlaune.de</a> - a site about the beautiful game.</p>
+      </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script>
+    $(function(){
+        $('.nav a[href="'+document.location.pathname+'"]').parent('li').attr('class', 'active');
+        $('a[href*="http"]').attr('target', '_top');
+    });
+    </script>
+    
+
+<script src="/min/d3.sankey.js"></script>
+
+
+
+        
+            <script src="/min/transfer-records.js#v=1"></script>
+        
+    
+<script>
+var config = {'csv': '/data/transfer-records.csv', 'to': {'name': 'To team', 'key': 'To Team Name'}, 'from': {'name': 'From team', 'key': 'From Team Name'}, 'link': {'key': 'Player Name'}, 'aggregate': {'key': 'Transfer Fee'}};
+d3.csv(config.csv, function(error, data) {
+    init_sankey(config, data)
+});
+</script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-5102014-18', 'torlaune.de');
+ga('send', 'pageview');
+(function(c,a){function d(){var e=a.getElementsByTagName("a");var f=[];for(var g=0;g<e.length;++g){var h=e[g];if(h.host!=c.location.host){f.push(h)}}return f}function b(f){var e=f.srcElement||f.target;while(e&&(typeof e.tagName=="undefined"||e.tagName.toLowerCase()!="a"||!e.href)){e=e.parentNode}if(!e||!e.href){return}if(c.ga){ga("send","event","Outbound link","Click",e.href)}if(!e.target||e.target.match(/^_(self|parent|top)$/i)){setTimeout(function(){a.location.href=e.href},150);if(f.preventDefault){f.preventDefault()}else{f.returnValue=false}}}c.addEventListener("load",function(){var e=d();for(var f in e){e[f].addEventListener("click",b)}})}(window,document));
+</script>
+  </body>
+</html>

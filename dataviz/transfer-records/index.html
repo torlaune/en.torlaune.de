@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a id="site-name" class="navbar-brand" href="http://www.torlaune.de/">Torlaune.de</a>
+          <a id="site-name" class="navbar-brand" href="https://www.torlaune.de/">Torlaune.de</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -62,12 +62,12 @@
   <button type="button" class="dropdown-toggle btn btn-success navbar-btn" data-toggle="dropdown"><i class="fa fa-share"></i></button>
   <ul class="share dropdown-menu pull-right">
     <li><a href="/rss.xml" class="btn btn-info"><i class="fa fa-rss"></i> RSS Feed</a></li>
-    <li><a rel="nofollow" href="https://twitter.com/share?url=http%3A//en.torlaune.de/dataviz/transfer-records/&text=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-twitter"></i> Twitter</a></li>
-    <li><a rel="nofollow" href="http://www.facebook.com/sharer.php?u=http%3A//en.torlaune.de/dataviz/transfer-records/&t=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-facebook"></i> Facebook</a></li>
-    <li><a rel="nofollow" href="https://plus.google.com/share?url=http%3A//en.torlaune.de/dataviz/transfer-records/" class="btn btn-info"><i class="fa fa-google-plus"></i> Google+</a></li>
-    <li><a rel="nofollow" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-    <li><a rel="nofollow" href="http://reddit.com/submit?url=http%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-share"></i> Reddit</a></li>
-    <li><a rel="nofollow" href="http://www.stumbleupon.com/submit?url=http%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-share"></i> Stumble</a></li>
+    <li><a rel="nofollow" href="https://twitter.com/share?url=https%3A//en.torlaune.de/dataviz/transfer-records/&text=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-twitter"></i> Twitter</a></li>
+    <li><a rel="nofollow" href="https://www.facebook.com/sharer.php?u=https%3A//en.torlaune.de/dataviz/transfer-records/&t=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-facebook"></i> Facebook</a></li>
+    <li><a rel="nofollow" href="https://plus.google.com/share?url=https%3A//en.torlaune.de/dataviz/transfer-records/" class="btn btn-info"><i class="fa fa-google-plus"></i> Google+</a></li>
+    <li><a rel="nofollow" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+    <li><a rel="nofollow" href="https://reddit.com/submit?url=https%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-share"></i> Reddit</a></li>
+    <li><a rel="nofollow" href="https://www.stumbleupon.com/submit?url=https%3A//en.torlaune.de/dataviz/transfer-records/&title=Most%20Expensive%20Football%20Transfers%3A%20How%20the%20Money%20Flows" class="btn btn-info"><i class="fa fa-share"></i> Stumble</a></li>
   </ul>
 </li>
 </ul>
@@ -143,7 +143,7 @@
     <div class="container">
       <hr>
       <footer>
-        <p>© <script>document.write(new Date().getFullYear())</script> <a href="http://www.torlaune.de/">Torlaune.de</a> - a site about the beautiful game.</p>
+        <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://www.torlaune.de/">Torlaune.de</a> - a site about the beautiful game.</p>
       </footer>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -165,7 +165,7 @@
         
     
 <script>
-var config = {'csv': '/data/transfer-records.csv', 'to': {'name': 'To team', 'key': 'To Team Name'}, 'from': {'name': 'From team', 'key': 'From Team Name'}, 'link': {'key': 'Player Name'}, 'aggregate': {'key': 'Transfer Fee'}};
+var config = {'csv': '/data/transfer-records.csv', 'from': {'key': 'From Team Name', 'name': 'From team'}, 'to': {'key': 'To Team Name', 'name': 'To team'}, 'link': {'key': 'Player Name'}, 'aggregate': {'key': 'Transfer Fee'}};
 d3.csv(config.csv, function(error, data) {
     init_sankey(config, data)
 });
